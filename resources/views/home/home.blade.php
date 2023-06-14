@@ -102,7 +102,7 @@
             <!-- right sidebar -->
             <div class="lg:w-3/12 w-full mt-8 lg:mt-0">
                 <!-- Social plugin -->
-                <div class="w-full bg-white shadow-sm rounded-sm p-4 ">
+                <div class="w-full bg-white shadow-sm rounded-lg p-4 ">
                     <h3 class="text-xl font-semibold text-gray-700 mb-3 font-roboto">Social</h3>
                     <div class="flex gap-2">
                         <a href="https://ilhanalim.github.io/" target="_blank"
@@ -125,7 +125,7 @@
                 </div>
 
                 <!-- Popular posts -->
-                <div class="w-full mt-8 bg-white shadow-sm rounded-sm p-4 ">
+                <div class="w-full mt-8 bg-white shadow-sm rounded-lg p-4 ">
                     <h3 class="text-xl font-semibold text-gray-700 mb-3 font-roboto">Random Posts</h3>
                     <div class="space-y-4">
                         @for ($i = 0; $i < 5; $i++)
