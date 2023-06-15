@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Login - Web Blog')
 
 @section('container')
 

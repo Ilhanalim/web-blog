@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Register - Web Blog')
 
 @section('container')
 
