@@ -9,23 +9,19 @@
             <!-- Main content -->
             <div class="xl:w-8/12 lg:w-9/12 w-full  xl:ml-6 lg:mr-6">
                 <!-- big post -->
-                <div class="rounded-lg overflow-hidden bg-white shadow-sm">
-                    {{-- <a href="view.html" class="block rounded-md overflow-hidden">
-                    </a> --}}
+                <div class="rounded-3xl overflow-hidden bg-white shadow-sm">
                     <div class="p-4 pb-5">
-
                         <h2
                             class="block text-2xl font-semibold text-gray-700 transition font-roboto">
-                            All blog by {{$user->name}}
+                            All posts by {{$user->name}}
                         </h2>
-
                     </div>
                 </div>
 
                 <!-- regular post -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                     @foreach ($blogs as $blog)
-                    <div class="rounded-lg bg-white p-4 pb-5 shadow-sm">
+                    <div class="rounded-3xl bg-white p-4 pb-5 shadow-sm">
                         {{-- <a href="{{'blog/' . $blog['id']}}" class="block rounded-md overflow-hidden">
                         </a> --}}
                         <div class="mt-3">
@@ -36,6 +32,7 @@
                                     {{$blog->title}}
                                 </h2>
                             </a>
+                            <h5 class="text-xs text-gray-400">{{Str::limit($blog->content, 90)}}</h5>
                             <div class="mt-2 flex space-x-3">
                                 <div class="flex text-gray-400 text-sm items-center">
                                     <span class="mr-2 text-xs">
@@ -47,7 +44,7 @@
                                     <span class="mr-2 text-xs">
                                         <i class="far fa-clock"></i>
                                     </span>
-                                    June 11, 2021
+                                    {{$blog->updated_at->diffForHumans()}}
                                 </div>
                             </div>
                         </div>
@@ -63,7 +60,7 @@
             <!-- right sidebar -->
             <div class="lg:w-3/12 w-full mt-8 lg:mt-0">
                 <!-- Social plugin -->
-                <div class="w-full bg-white shadow-sm rounded-lg p-4 ">
+                <div class="w-full bg-white shadow-sm rounded-3xl p-4 ">
                     <h3 class="text-xl font-semibold text-gray-700 mb-3 font-roboto">Social</h3>
                     <div class="flex gap-2">
                         <a href="https://ilhanalim.github.io/" target="_blank"
@@ -86,7 +83,7 @@
                 </div>
 
                 <!-- Popular posts -->
-                <div class="w-full mt-8 bg-white shadow-sm rounded-lg p-4 ">
+                <div class="w-full mt-8 bg-white shadow-sm rounded-3xl p-4 ">
                     <h3 class="text-xl font-semibold text-gray-700 mb-3 font-roboto">Random Posts</h3>
                     <div class="space-y-4">
                         @for ($i = 0; $i < 5; $i++)
@@ -101,7 +98,7 @@
                                 </h5>
                                 <div class="flex text-gray-400 text-sm items-center">
                                     <span class="mr-1 text-xs"><i class="far fa-clock"></i></span>
-                                     {{$randomPost[$index]->created_at->format('Y-m-d')}}
+                                     {{$randomPost[$index]->updated_at->diffForHumans()}}
                                 </div>
                             </div>
                         </a>

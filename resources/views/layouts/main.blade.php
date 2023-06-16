@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="{{ asset('blog.png') }}" type="image/x-icon">
     {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}"> --}}
-    @vite('resources/css/app.css')
-    {{-- <script src="https://cdn.tailwindcss.com"></script>
+    {{-- @vite('resources/css/app.css') --}}
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             content: [
@@ -37,7 +37,7 @@
     },
     plugins: [],
         }
-      </script> --}}
+      </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 
@@ -75,15 +75,6 @@
             </div>
             <!-- navlinks end -->
 
-            <!-- searchbar -->
-            {{-- <div class="relative lg:ml-auto hidden lg:block">
-                <span class="absolute left-3 top-2 text-sm text-gray-500">
-                    <i class="fas fa-search"></i>
-                </span>
-                <input type="text"
-                    class="block w-full shadow-sm border-none rounded-3xl  pl-11 pr-2 py-2 focus:outline-none bg-gray-50 text-sm text-gray-700 placeholder-gray-500"
-                    placeholder="Search">
-            </div> --}}
             @guest
             <div class="relative lg:ml-auto hidden lg:block">
                 <a href="{{route('login.show')}}"
@@ -155,35 +146,27 @@
                 </a>
                 @endauth
                 <a href="{{route('home')}}"
-                    class="flex px-4 py-1 uppercase items-center font-semibold text-sm  transition hover:text-blue-500">
+                    class="flex px-4 py-1 items-center font-semibold text-sm  transition hover:text-blue-500">
                     <span class="w-6">
                         <i class="fas fa-home"></i>
                     </span>
                     Home
                 </a>
-                <a href="#"
-                    class="flex px-4 py-1 uppercase items-center font-semibold text-sm  transition hover:text-blue-500">
+                <a href="{{route('home.about')}}"
+                    class="flex px-4 py-1 items-center font-semibold text-sm  transition hover:text-blue-500">
                     <span class="w-6">
                         <i class="far fa-file-alt"></i>
                     </span>
                     About
                 </a>
-                <a href="#"
-                    class="flex px-4 py-1 uppercase items-center font-semibold text-sm  transition hover:text-blue-500">
-                    <span class="w-6">
-                        <i class="fas fa-phone"></i>
-                    </span>
-                    Contact
-                </a>
                 @guest
-                    <div class="relative lg:ml-auto hidden lg:block">
-                        <a href="{{route('login.show')}}"
-                            class="text-sm font-semibold hover:text-blue-500 transition flex items-center">
-                            <span class="mr-2">
-                                <i class="far fa-user"></i>
-                            </span>
-                            Login/Register</a>
-                    </div>
+                <a href="{{route('login.show')}}"
+                    class="flex px-4 py-1 items-center font-semibold text-sm  transition hover:text-blue-500">
+                    <span class="mr-2">
+                        <i class="far fa-user"></i>
+                    </span>
+                    Login/Register
+                </a>
                 @endguest
                 @auth
                     <form action="{{route('logout')}}" method="post">

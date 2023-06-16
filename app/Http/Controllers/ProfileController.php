@@ -16,7 +16,7 @@ class ProfileController extends Controller
      */
     public function index() : View
     {
-        $blogs = Blog::where('user_id', Auth::id())->latest()->get();
+        $blogs = Blog::where('user_id', Auth::id())->latest()->paginate(10);
         return view('profile.profile', [
             'blogs' => $blogs
         ]);

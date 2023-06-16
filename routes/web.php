@@ -20,8 +20,13 @@ use App\Http\Controllers\UploadController;
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'show')->name('home');
     Route::get('/about', 'about')->name('home.about');
+    
     Route::get('/blog/{id}', 'showById')->name('home.id');
-    Route::get('/author/{id}', 'showByUser')->name('home.user');
+    Route::post('/blog/{id}', 'addComment')->name('home.id.comment');
+    // Route::delete('/blog/{id}/{commentId}', 'deleteComment')->name('home.id.delete');
+    Route::delete('/comments/{commentId}', [HomeController::class, 'deleteComment'])->name('comments.delete');
+
+    Route::get('/author/{name}', 'showByUser')->name('home.user');
 });
 
 

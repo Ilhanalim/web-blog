@@ -9,7 +9,7 @@
             <!-- Main content -->
             <div class="xl:w-8/12 lg:w-9/12 w-full  xl:ml-6 lg:mr-6">
                 <!-- big post -->
-                <div class="rounded-lg overflow-hidden bg-white shadow-sm">
+                <div class="rounded-3xl overflow-hidden bg-white shadow-sm">
                     {{-- <a href="view.html" class="block rounded-md overflow-hidden">
                     </a> --}}
                     <img class="bg-left" src="{{asset('img/about.png')}}"
@@ -21,7 +21,7 @@
                             </h2>
 
                         <p class="text-gray-500 text-sm mt-2">
-                            Make a simple web blog that can login, upload, edit, delete with laravel framework
+                            Make a simple web blog that can login, upload, edit, delete and comment with laravel framework
                         </p>
                         <p class="text-gray-500 text-sm mt-2">
                             For more information about me can contact to my social account
@@ -50,7 +50,7 @@
             <!-- right sidebar -->
             <div class="lg:w-3/12 w-full mt-8 lg:mt-0">
                 <!-- Social plugin -->
-                <div class="w-full bg-white shadow-sm rounded-lg p-4 ">
+                <div class="w-full bg-white shadow-sm rounded-3xl p-4 ">
                     <h3 class="text-xl font-semibold text-gray-700 mb-3 font-roboto">Social</h3>
                     <div class="flex gap-2">
                         <a href="https://ilhanalim.github.io/" target="_blank"
@@ -73,7 +73,7 @@
                 </div>
 
                 <!-- Popular posts -->
-                <div class="w-full mt-8 bg-white shadow-sm rounded-lg p-4 ">
+                <div class="w-full mt-8 bg-white shadow-sm rounded-3xl p-4 ">
                     <h3 class="text-xl font-semibold text-gray-700 mb-3 font-roboto">Random Posts</h3>
                     <div class="space-y-4">
                         @for ($i = 0; $i < 5; $i++)
@@ -88,7 +88,7 @@
                                 </h5>
                                 <div class="flex text-gray-400 text-sm items-center">
                                     <span class="mr-1 text-xs"><i class="far fa-clock"></i></span>
-                                     {{$randomPost[$index]->created_at->format('Y-m-d')}}
+                                     {{$randomPost[$index]->updated_at->diffForHumans()}}
                                 </div>
                             </div>
                         </a>

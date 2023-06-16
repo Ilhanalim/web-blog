@@ -27,7 +27,7 @@
         {{-- left sidebar --}}
         <div class="w-3/12 hidden xl:block h-screen">
             <!-- categories -->
-            <div class="w-full h-80 bg-white shadow-sm rounded-xl p-4 font-roboto">
+            <div class="w-full h-80 bg-white shadow-sm rounded-3xl p-4 font-roboto">
                 <h3 class="text-xl font-semibold text-gray-700 mb-3 font-roboto"></h3>
                 <div class="space-y-5">
                     <a href="{{route('profile')}}"
@@ -59,12 +59,8 @@
         <!-- Main content -->
         <div class="xl:w-9/12 lg:w-9/12 w-full  xl:ml-6 lg:mr-6">
             <!-- big post -->
-            <div class="rounded-lg overflow-hidden bg-white shadow-sm">
-                <a href="view.html" class="block rounded-md overflow-hidden">
-                    {{-- <img src="src/images/img-12.jpg"
-                        class="w-full h-96 object-cover transform hover:scale-110 transition duration-500"> --}}
-                </a>
-                <div class="p-4 pb-5">
+            <div class="rounded-3xl overflow-hidden bg-white shadow-sm">
+                <div class="p-4 pl-7 pr-7 pb-5">
                     <h2
                         class="block text-2xl mb-3 font-semibold text-gray-700 font-roboto">
                         Edit a Post
@@ -85,41 +81,39 @@
                             <span class="mr-2 text-xs">
                                 <i class="far fa-user"></i>
                             </span>
-                            <a href="{{route('home.user', $blog->user->id)}}" class="hover:text-blue-500 transition font-roboto">
-                                {{$blog->user->name}}
+                            <a href="{{route('profile')}}" class="hover:text-blue-500 transition font-roboto">
+                                You
                             </a>
                         </div>
                         <div class="flex text-gray-400 text-sm items-center">
                             <span class="mr-2 text-xs">
                                 <i class="far fa-clock"></i>
                             </span>
-                            {{$blog->created_at->format('Y-m-d')}}
+                            {{$blog->updated_at->diffForHumans()}}
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-1 gap-4 mt-4">
-                        <form action="{{route('profile').'/'.$blog->id}}" method="post">
-                            @method('put')
-                            @csrf
-                            <div class="mb-6">
-                              <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
-                              <input type="text" name="title" id="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Title..." required>
-                            </div>
-                            <div class="mb-6">
-                              
-                            <label for="content" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your message</label>
-                            <textarea id="content" name="content" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder="Write your content here..."></textarea>
-        
-                            </div>
-                            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-                          </form>
-                       
+                        <div class="rounded-3xl bg-white p-4">
+                            <form action="{{route('profile').'/'.$blog->id}}" method="post">
+                                @method('put')
+                                @csrf
+                                <div class="mb-6">
+                                    <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
+                                    <input type="text" name="title" id="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Title..." required>
+                                    </div>
+                                    <div class="mb-6">
+                                    
+                                    <label for="content" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your message</label>
+                                    <textarea id="content" name="content" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder="Write your content here..."></textarea>
+            
+                                </div>
+                                <button type="submit" class="mt-3 rounded-3xl text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="mt-5">
-            {{-- {{$blogs->links()}} --}}
-            </div>
+
         </div>
 
       

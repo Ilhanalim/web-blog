@@ -57,20 +57,15 @@
         
         </div>
         <!-- Main content -->
-        <div class="xl:w-9/12 lg:w-9/12 w-full  xl:ml-6 lg:mr-6">
+        <div class="xl:w-9/12 lg:w-9/12 w-full h-screen  xl:ml-6 lg:mr-6">
             <!-- big post -->
             <div class="rounded-lg overflow-hidden bg-white shadow-sm">
-                <a href="view.html" class="block rounded-md overflow-hidden">
-                    {{-- <img src="src/images/img-12.jpg"
-                        class="w-full h-96 object-cover transform hover:scale-110 transition duration-500"> --}}
-                </a>
+                
                 <div class="p-4 pb-5">
-                    <a href="view.html">
                         <h2
-                            class="block text-2xl font-semibold text-gray-700 hover:text-blue-500 transition font-roboto">
+                            class="block text-2xl font-semibold text-gray-700 font-roboto">
                             {{$blog->title}}
                         </h2>
-                    </a>
                     @foreach ($paragraphs as $paragraph)
                     <p class="text-gray-500 text-sm mt-2 ">
                         {{$paragraph}}
@@ -81,7 +76,7 @@
                             <span class="mr-2 text-xs">
                                 <i class="far fa-user"></i>
                             </span>
-                            <a href="{{route('home.user', $blog->user->id)}}" class="hover:text-blue-500 transition font-roboto">
+                            <a href="{{route('home.user', $blog->user->name)}}" class="hover:text-blue-500 transition font-roboto">
                                 {{$blog->user->name}}
                             </a>
                         </div>
@@ -89,7 +84,7 @@
                             <span class="mr-2 text-xs">
                                 <i class="far fa-clock"></i>
                             </span>
-                            {{$blog->created_at->format('Y-m-d')}}
+                            {{$blog->updated_at->diffForHumans()}}
                         </div>
                     </div>
                     <div class="mt-4 flex space-x-3">
